@@ -1,6 +1,6 @@
 version: '3'
 services:
-  docker-for-wslg:
+  open-interpreter:
     build: .
     environment:
       - DISPLAY=$DISPLAY
