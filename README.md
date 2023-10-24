@@ -1,33 +1,31 @@
-# docker-for-wslg
+# What's this?
+Open-Interpreterを利用するためのdockerイメージです。
+- 1コマンドでDockerコンテナを立ち上げ、すぐにOpen-Interpreterを使い始められる
+- file_share ディレクトリでローカルとのファイル共有ができる
+  - ローカルから分析したいファイルをコンテナに送ったり、分析結果の画像ファイルをコンテナから取得したりできる
 
-This is a minimal template for using WSLg (Windows Subsystem for Linux GUI) on Docker Container (Ubuntu 20.04).  
+# Prerequisites
+- Dockerがインストールされていること
 
-If you want to use GPU together, use the following template.  
-[0V/gpu-wslg](https://github.com/0V/gpu-wslg)
+# Usage
+## 1. 環境変数ファイルを編集する
+1. `interpreter.env.sample` をコピーして `interpreter.env` にリネームする
+2. `interpreter.env` を編集し、`OPENAI_API_KEY` に [OpenAIのポータル](https://platform.openai.com/account/api-keys)で発行できるAPIキーを設定する
 
-## Require
-
-- Windows 11
-- WSL2 (latest)
-- Docker Desktop 
-  - docker
-  - docker-compose
-
-## Installation
-
-```
-docker-compose up -d --build
-docker-compose exec docker-for-wslg /bin/bash
+## 2. Dockerコンテナを立ち上げる
+```bash
+docker compose up -d --build
 ```
 
-## Try!
-
-You can use the following commands to test WSLg on Docker Container.
-
-```
-apt install -y x11-apps
-xeyes
+# 3. Dockerコンテナに入る
+```bash
+docker compose exec interpreter bash
 ```
 
-### result
-![image](https://user-images.githubusercontent.com/7000978/152202881-6c295dc5-977f-4826-91b6-875d76bcd2e1.png)
+# 4. Open-Interpreterを起動する
+コンテナ内で次のコマンドを実行
+```bash
+Interpreter
+```
+
+Let's enjoy Open-Interpreter!
