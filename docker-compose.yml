@@ -14,4 +14,4 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /mnt/wslg:/mnt/wslg
-      - ./file_share:/root
+      - ./file_share:/root/file_share
