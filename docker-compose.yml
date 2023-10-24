@@ -7,10 +7,11 @@ services:
       - WAYLAND_DISPLAY=$WAYLAND_DISPLAY
       - XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
       - PULSE_SERVER=$PULSE_SERVER
-      - OPENAI_API_KEY=<YOUR API KEY HERE>
+    env_file:
+      - interpreter.env
     restart: always
     tty: true
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /mnt/wslg:/mnt/wslg
-      - ./file_share:/root 
+      - ./file_share:/root
